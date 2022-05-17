@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.metroparis.MetroController">
-	<!-- TODO Add Nodes -->
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="461.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.metroparis.MetroController">
+   <top>
+      <Label text="MetroParis - Ricerca percorsi" BorderPane.alignment="CENTER" />
+   </top>
+   <center>
+      <VBox prefHeight="444.0" prefWidth="395.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ComboBox fx:id="boxPartenza" prefWidth="150.0" promptText="Seleziona..." GridPane.columnIndex="1" />
+                  <ComboBox fx:id="boxArrivo" prefWidth="150.0" promptText="Seleziona..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Partenza" />
+                  <Label text="Arrivo" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCerca" text="Ricerca percorso" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <TableView fx:id="tablePercorso" prefHeight="200.0" prefWidth="400.0">
+              <columns>
+                <TableColumn fx:id="colFermata" editable="false" prefWidth="425.3333841562271" sortable="false" text="Fermata" />
+              </columns>
+            </TableView>
+            <TextArea fx:id="txtResult" editable="false" prefHeight="131.0" prefWidth="337.0" />
+         </children>
+      </VBox>
+   </center>
 </BorderPane>
